@@ -36,7 +36,7 @@ font = pygame.font.Font(None, 32)
 clock = pygame.time.Clock()
 
 # Load bird image
-bird_image = pygame.image.load("assets/birdyMK.png").convert_alpha()
+bird_image = pygame.image.load("assets/BirdyMK.png").convert_alpha()
 bird_image = pygame.transform.scale(bird_image, (40, 30))
 
 # Initialize
@@ -46,7 +46,7 @@ pygame.mixer.init()
 flap_sound = pygame.mixer.Sound("assets/MK.mp3")
 
 # Load background music
-pygame.mixer.music.load("assets/Mk.wav")
+pygame.mixer.music.load("assets/Mk_bg.mp3")
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1)  # Loop indefinitely
 
