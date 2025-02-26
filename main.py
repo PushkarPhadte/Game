@@ -46,9 +46,9 @@ pygame.mixer.init()
 flap_sound = pygame.mixer.Sound("assets/MK.mp3")
 
 # Load background music
-pygame.mixer.music.load("assets/Mk_bg.mp3")
-pygame.mixer.music.set_volume(0.5)
-pygame.mixer.music.play(-1)  # Loop indefinitely
+#pygame.mixer.music.load("assets/Mk_bg.mp3")
+#pygame.mixer.music.set_volume(0.5)
+#pygame.mixer.music.play(-1)  # Loop indefinitely
 
 # Bird
 bird = pygame.Rect(100, HEIGHT // 2, 40, 30)
