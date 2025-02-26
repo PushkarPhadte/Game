@@ -30,13 +30,17 @@ resuming = False
 last_pipe_time = 0
 first_launch = True
 
-# Load assets
-font = pygame.font.SysFont("Arial", 32)
+# Load assets 
+# pygame.font.SysFont("Arial", 32)
+font = pygame.font.Font(None, 32)
 clock = pygame.time.Clock()
 
 # Load bird image
 bird_image = pygame.image.load("assets/birdyMK.png").convert_alpha()
 bird_image = pygame.transform.scale(bird_image, (40, 30))
+
+# Initialize
+pygame.mixer.init()
 
 # Load flap sound
 flap_sound = pygame.mixer.Sound("assets/MK.mp3")
