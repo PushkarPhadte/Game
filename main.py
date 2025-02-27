@@ -43,12 +43,13 @@ bird_image = pygame.transform.scale(bird_image, (40, 30))
 pygame.mixer.init()
 
 # Load flap sound
-flap_sound = pygame.mixer.Sound("assets/MK.mp3")
+flap_sound = pygame.mixer.Sound("assets/MK_.wav")
 
 # Load background music
-pygame.mixer.music.load("assets/Mk_bg.mp3")
-pygame.mixer.music.set_volume(0.5)
-pygame.mixer.music.play(-1)  # Loop indefinitely
+if not pygame.mixer.music.get_busy():
+    pygame.mixer.music.load('assets/MK.wav')
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play(-1)
 
 # Bird
 bird = pygame.Rect(100, HEIGHT // 2, 40, 30)
@@ -131,11 +132,12 @@ def death_screen():
     death_text = font.render("Game Over", True, RED)
     score_text = font.render(f"Score: {score}", True, BLACK)
     high_score_text = font.render(f"High Score: {high_score}", True, BLACK)
-    restart_text = font.render("Press SPACE or Tap to Restart", True, BLACK)
+    restart_text = font.render("Press SPACE to Restart", True, BLACK)
     screen.blit(death_text, (WIDTH // 2 - death_text.get_width() // 2, HEIGHT // 3))
     screen.blit(score_text, (WIDTH // 2 - score_text.get_width() // 2, HEIGHT // 2))
     screen.blit(high_score_text, (WIDTH // 2 - high_score_text.get_width() // 2, HEIGHT // 2 + 40))
     screen.blit(restart_text, (WIDTH // 2 - restart_text.get_width() // 2, HEIGHT // 2 + 100))
+    pygame.mixer.music.pause()
     pygame.display.update()
 
 def draw_pause_button():
@@ -173,6 +175,7 @@ def reset_game():
     passed_pipes.clear()
     score = 0
     game_active = True
+    pygame.mixer.music.unpause()
 
 # Game loop
 pipe_timer = pygame.USEREVENT
